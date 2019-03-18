@@ -1,0 +1,20 @@
+- name: Set up a Registry database
+  hosts: default
+  sudo: true
+  tasks:
+  - name: install postgres
+    apt: name=postgresql-9.5 state=present
+
+  - name: Create Registry user and database
+    script: files/create-database.sh
+
+  # Required to run liquibase and maven
+  - name: installing Java runtime environment
+    yum: name=openjdk-8-jdk-headless state=present
+
+  - name: installing Maven
+    yum: name=maven,git state=present
+
+  # Clone/update git repos and run the liquibase migration to create the databases
+  - name: Run liquibase
+    script: files/run-liquibase.sh

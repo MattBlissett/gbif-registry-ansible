@@ -1,0 +1,9 @@
+- name: Install RabbitMQ (default Ubuntu version)
+  hosts: default
+  sudo: true
+  tasks:
+  - name: install rabbit
+    apt: name=rabbitmq-server state=present
+
+  - name: Install RabbitMQ web interface
+    command: /usr/sbin/rabbitmq-plugins enable rabbitmq_management

@@ -1,0 +1,15 @@
+[Unit]
+Description=GBIF Registry server
+
+[Service]
+WorkingDirectory=/usr/local/registry-ws
+ExecStart=/usr/bin/java -jar registry-ws.jar -conf application.properties -host localhost -httpAdminPort 8081 -httpPort 8080 -externalAdminPort 8081 -externalPort 8080 -stopSecret stop -zkHost '' -zkPath ''
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=registry-ws
+User=vagrant
+Group=vagrant
+
+[Install]
+WantedBy=multi-user.target

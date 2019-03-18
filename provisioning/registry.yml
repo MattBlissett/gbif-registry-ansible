@@ -1,0 +1,21 @@
+- name: Install GBIF registry
+  hosts: default
+  sudo: true
+  tasks:
+  # Registry webservice
+  - name: Quick setup with a shell script
+    script: files/registry-ws.sh
+
+  # Registry console
+  - name: installing Java runtime environment
+    apt: name=nodejs,apache2 state=present
+
+  - name: Apache for static console
+    copy:
+      src: /vagrant/provisioning/files/registry-console.vhost
+      dest: /etc/apache2/sites-available/000-default.conf
+
+  # name: Install Registry Console
+  # unarchive:
+  #   src: /vagrant/provisioning/files/registry-console-2019-03-18.tar
+  #   dest: /var/www/html
