@@ -7,11 +7,11 @@ It is not written for production use, although it would be a good start towards 
 The script:
 
 * Starts an Ubuntu VM
-* Installs PostgreSQL, and creates a user and database
-* Installs Rabbit MQ, including the management interface
-* Insalls Java, Apache HTTPD, and other necessary tools
-* Runs Liquibase to create an empty database schema
-* Downloads a hardcoded version of the GBIF Registry ws (2.105) and installs it as a SystemD service
+* Installs PostgreSQL from the default Ubuntu packages, and creates a user and database
+* Installs Rabbit MQ from the default Ubuntu packages, including the management interface
+* Insalls Java, Apache HTTPD, and other necessary tools (Ubuntu packages)
+* Runs Liquibase to create an empty Registry database
+* Downloads a hardcoded version of the GBIF Registry webservice (2.105) and installs it as a SystemD service
 * Extracts an included GBIF Registry console archive to be served by HTTPD.
 
 The web service is exposed on port 8080, for example http://localhost:8080/dataset.

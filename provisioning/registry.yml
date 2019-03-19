@@ -15,7 +15,7 @@
       src: /vagrant/provisioning/files/registry-console.vhost
       dest: /etc/apache2/sites-available/000-default.conf
 
-  # name: Install Registry Console
-  # unarchive:
-  #   src: /vagrant/provisioning/files/registry-console-2019-03-18.tar
-  #   dest: /var/www/html
+  - name: Install Registry Console
+    unarchive:
+      src: /vagrant/provisioning/files/registry-console-2019-03-19.tar
+      dest: /var/www/html
