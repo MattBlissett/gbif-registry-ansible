@@ -35,10 +35,10 @@ sudo systemctl stop registry-doi-updater
 
 # Create RabbitMQ queues. This is normally done by the processes that read from the queues when they start up, but for the
 # registry-doi queue — it's not being started, and for the crawler_coordinator queue, we aren't running the crawler here.
+curl -u guest:guest 'http://localhost:15672/api/exchanges/%2F/registry' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"registry","type":"topic","durable":"true","auto_delete":"false","internal":"false","arguments":{}}'
+
 curl -u guest:guest 'http://localhost:15672/api/queues/%2F/registry-doi' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"registry-doi","durable":"true","auto_delete":"false","arguments":{}}'
 curl -u guest:guest 'http://localhost:15672/api/bindings/%2F/e/registry/q/registry-doi' -H 'Content-type: application/json' --data '{"vhost":"/","source":"registry","destination_type":"q","destination":"registry-doi","routing_key":"doi.change","arguments":{}}'
-
-curl -u guest:guest 'http://localhost:15672/api/exchanges/%2F/registry' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"registry","type":"topic","durable":"true","auto_delete":"false","internal":"false","arguments":{}}'
 
 curl -u guest:guest 'http://localhost:15672/api/queues/%2F/crawler_coordinator' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"crawler_coordinator","durable":"true","auto_delete":"false","arguments":{}}'
 curl -u guest:guest 'http://localhost:15672/api/bindings/%2F/e/registry/q/crawler_coordinator' -H 'Content-type: application/json' --data '{"vhost":"/","source":"registry","destination_type":"q","destination":"crawler_coordinator","routing_key":"crawl.start","arguments":{}}'

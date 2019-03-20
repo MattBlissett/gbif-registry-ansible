@@ -19,3 +19,6 @@
     unarchive:
       src: /vagrant/provisioning/files/registry-console-2019-03-19.tar
       dest: /var/www/html
+
+  - name: Restart Apache HTTPD
+    service: name=apache2 state=restarted
