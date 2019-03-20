@@ -40,5 +40,8 @@ curl -u guest:guest 'http://localhost:15672/api/exchanges/%2F/registry' -X PUT -
 curl -u guest:guest 'http://localhost:15672/api/queues/%2F/registry-doi' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"registry-doi","durable":"true","auto_delete":"false","arguments":{}}'
 curl -u guest:guest 'http://localhost:15672/api/bindings/%2F/e/registry/q/registry-doi' -H 'Content-type: application/json' --data '{"vhost":"/","source":"registry","destination_type":"q","destination":"registry-doi","routing_key":"doi.change","arguments":{}}'
 
+curl -u guest:guest 'http://localhost:15672/api/queues/%2F/registry-change' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"registry-change","durable":"true","auto_delete":"false","arguments":{}}'
+curl -u guest:guest 'http://localhost:15672/api/bindings/%2F/e/registry/q/registry-change' -H 'Content-type: application/json' --data '{"vhost":"/","source":"registry","destination_type":"q","destination":"registry-change","routing_key":"registry.change.#","arguments":{}}'
+
 curl -u guest:guest 'http://localhost:15672/api/queues/%2F/crawler_coordinator' -X PUT -H 'Content-type: application/json' --data '{"vhost":"/","name":"crawler_coordinator","durable":"true","auto_delete":"false","arguments":{}}'
 curl -u guest:guest 'http://localhost:15672/api/bindings/%2F/e/registry/q/crawler_coordinator' -H 'Content-type: application/json' --data '{"vhost":"/","source":"registry","destination_type":"q","destination":"crawler_coordinator","routing_key":"crawl.start","arguments":{}}'
