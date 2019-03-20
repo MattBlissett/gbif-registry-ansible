@@ -19,6 +19,8 @@ The web service is exposed on port 8080, for example http://localhost:8080/datas
 
 The console is exposed on port 8090, see http://localhost:8090.
 
+*(The legacy admin interface is on http://localhost:8080/ but is scheduled to be removed.)*
+
 Webservice logs can be seen with `journalctl -u registry-ws`.
 
 RabbitMQ's interface is visible at http://localhost:15672/, with user `guest` and password `guest`.
