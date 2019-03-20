@@ -8,8 +8,8 @@ The script:
 
 * Starts an Ubuntu VM
 * Installs PostgreSQL from the default Ubuntu packages, and creates a user and database
-* Installs Rabbit MQ from the default Ubuntu packages, including the management interface
-* Insalls Java, Apache HTTPD, and other necessary tools (Ubuntu packages)
+* Installs RabbitMQ from the default Ubuntu packages, including the management interface
+* Installs Java, Apache HTTPD, and other necessary tools (Ubuntu packages)
 * Runs Liquibase to create an empty Registry database, and adds a default user and node
 * Downloads version 2.105 of the GBIF Registry webservice and installs it as a SystemD service
 * Downloads version 2.105 of the GBIF Registry CLI module and installs it as a SystemD service, but doesn't start it
