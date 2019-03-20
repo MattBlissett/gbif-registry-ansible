@@ -8,4 +8,5 @@ CREATE DATABASE registry WITH OWNER registry;
 \c registry;
 
 CREATE EXTENSION hstore;
+CREATE EXTENSION unaccent;
 EOF

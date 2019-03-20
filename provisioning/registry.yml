@@ -2,9 +2,9 @@
   hosts: default
   sudo: true
   tasks:
-  # Registry webservice
+  # Registry webservice and CLI
   - name: Quick setup with a shell script
-    script: files/registry-ws.sh
+    script: files/registry.sh
 
   # Registry console
   - name: installing Java runtime environment

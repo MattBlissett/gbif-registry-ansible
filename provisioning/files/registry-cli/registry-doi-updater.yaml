@@ -1,0 +1,18 @@
+queueName: registry-doi
+messaging:
+  host: localhost
+  virtualHost: /
+  username: guest
+  password: guest
+#ganglia:
+#  host:
+#  port:
+registry:
+  serverName: localhost
+  databaseName: registry
+  user: registry
+  password: registry
+datacite:
+  username: XX.XX
+  password: XX
+  timeout: 120000

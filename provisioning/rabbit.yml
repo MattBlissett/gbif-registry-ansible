@@ -7,3 +7,11 @@
 
   - name: Install RabbitMQ web interface
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_management
+
+  - name: Rabbit guest access
+    copy:
+      dest: /etc/rabbitmq/rabbitmq.config
+      content: '[{rabbit, [{loopback_users, []}]}].'
+
+  - name: Restart RabbitMQ
+    service: name=rabbitmq-server state=restarted

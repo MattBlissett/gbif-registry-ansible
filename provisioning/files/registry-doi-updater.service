@@ -1,0 +1,15 @@
+[Unit]
+Description=GBIF Registry DOI updater
+
+[Service]
+WorkingDirectory=/usr/local/registry-cli
+ExecStart=/usr/bin/java -jar registry-cli.jar doi-updater --log-config logback-doi-updater.xml --conf registry-doi-updater.yaml
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=doi-updater
+User=vagrant
+Group=vagrant
+
+[Install]
+WantedBy=multi-user.target

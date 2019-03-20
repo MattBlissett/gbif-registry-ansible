@@ -5,5 +5,5 @@
         ErrorLog                   logs/registry-80_error
         CustomLog                  logs/registry-80_log combined
 
-        AliasMatch                 ^/[^.]+$ /var/www/html/registry-console/index.html
+        AliasMatch                 ^/[^.]+$ /var/www/html/index.html
 </VirtualHost>
